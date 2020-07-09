@@ -1,9 +1,9 @@
 ---
 layout: page
-description: "Amoim's Dev Blog"
 ---
 
-{% for post in paginator.posts %}
+{% assign category = page.category | default: page.title %}
+{% for post in site.categories[category] %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -16,9 +16,9 @@ description: "Amoim's Dev Blog"
         {% endif %}
         <div class="post-content-preview">
             {% if post.lang == 'en' %}
-                {{ post.content | strip_html | truncate:300 }}
+            {{ post.content | strip_html | truncate:300 }}
             {% else %}
-                {{ post.content | strip_html | truncate:200 }}
+            {{ post.content | strip_html | truncate:200 }}
             {% endif %}
         </div>
     </a>
@@ -28,6 +28,3 @@ description: "Amoim's Dev Blog"
 </div>
 <hr>
 {% endfor %}
-
-<!-- Pager -->
-{% include paginator.html %}

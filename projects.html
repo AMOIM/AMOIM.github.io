@@ -1,0 +1,33 @@
+---
+layout: page
+title: Projects
+---
+
+{% assign pages_list = site.pages %}
+{% for project in pages_list %}
+{% if project.title != null %}
+{% if project.layout == "category" %}
+<div class="post-preview">
+    <a class="category-link {% if page.url == project.url %} active{% endif %}"
+       href="{{ site.baseurl }}{{ project.url }}">
+        <h2 class="post-title">
+            {{ project.title }}
+        </h2>
+        {% if project.subtitle %}
+        <h3 class="post-subtitle">
+            {{ project.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {% if project.lang == 'en' %}
+            {{ project.content | strip_html | truncate:300 }}
+            {% else %}
+            {{ project.content | strip_html | truncate:200 }}
+            {% endif %}
+        </div>
+    </a>
+</div>
+<hr>
+{% endif %}
+{% endif %}
+{% endfor %}
