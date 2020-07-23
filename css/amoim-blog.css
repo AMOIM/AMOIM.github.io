@@ -1,0 +1,46 @@
+.project-img {
+    float: left;
+    margin-right: 0;
+    width: 65%;
+    height: auto;
+}
+
+.project-img > img {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+.project-item {
+}
+
+.project-write{
+    width : 35%;
+    height : auto;
+    float : left;
+    padding: 10px 0 10px 40px;
+}
+
+.project-tag {
+  margin: 0;
+  padding : 7px;
+  border-radius: 25px;
+  background-color: rgb(230, 230, 230);
+}
+
+.project-tag > a {
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+.project-etc{
+  font-size: 15px;
+  line-height: 2.0;
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 10px;
+}

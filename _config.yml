@@ -13,10 +13,10 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     amoim
-zhihu_username:     amoim
+weibo_username:
+zhihu_username:
 github_username:    amoim
-twitter_username:   amoim
+twitter_username:
 #facebook_username:  amoim
 #linkedin_username:  firstname-lastname-idxxxx
 

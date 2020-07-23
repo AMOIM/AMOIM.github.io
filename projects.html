@@ -1,32 +1,46 @@
 ---
 layout: page
 title: Projects
+hide-sidebar: true
 ---
 
+<br/>
+<br/>
 {% assign pages_list = site.pages %}
 {% for project in pages_list %}
 {% if project.title != null %}
 {% if project.layout == "category" %}
-<div class="post-preview">
-    <a class="category-link {% if page.url == project.url %} active{% endif %}"
-       href="{{ site.baseurl }}{{ project.url }}">
-        <h2 class="post-title">
-            {{ project.title }}
-        </h2>
-        {% if project.subtitle %}
-        <h3 class="post-subtitle">
-            {{ project.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {% if project.lang == 'en' %}
-            {{ project.content | strip_html | truncate:300 }}
-            {% else %}
-            {{ project.content | strip_html | truncate:200 }}
+
+<article class="project-item pf-dl clearfix">
+    <div class="project-img"><img src="{{ project.feature }}"/></div>
+    <div class="post-preview project-write">
+        <a href="{{ site.baseurl }}{{ project.url }}">
+            <h2 class="post-title">
+                {{ project.title }}
+            </h2>
+            {% if project.subtitle %}
+            <h3 class="post-subtitle">
+                {{ project.subtitle }}
+            </h3>
             {% endif %}
+            <div class="post-content-preview">
+                {{ project.content }}
+            </div>
+        </a>
+        <div class="project-etc">
+        <i class="fa fa-tag"></i>
+        &nbsp;&nbsp;
+        {% for tag in project.tags %}
+            <a class="project-tag" href="{{ site.baseurl }}/archive/?tag={{ tag }}">{{ tag }}</a>
+            &nbsp;
+        {% endfor %}
+        <br/>
+        <i class="fa fa-clock-o"></i>
+        &nbsp;&nbsp;
+        <span>{{ project.start | date: "'%y.%m" }}&nbsp; ~ &nbsp; {{ project.end | date: "'%y.%m" }}</span>
         </div>
-    </a>
-</div>
+    </div>
+</article>
 <hr>
 {% endif %}
 {% endif %}
